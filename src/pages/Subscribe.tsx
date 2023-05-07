@@ -1,4 +1,4 @@
-import { useCreateSubscriberMutation } from "../graphql/generated";
+import { useCreateSubscriberMutation, useGetSubscriberQuery } from "../graphql/generated";
 import { useState, FormEvent } from "react";
 import { useNavigate } from "react-router-dom";
 import { Logo } from "../components/Logo";
@@ -10,17 +10,25 @@ export const Subscribe = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
 
-  const [createSubscriber, { loading }] = useCreateSubscriberMutation();
+  const { data } = useGetSubscriberQuery({
+    variables: {
+      email
+    }
+  })
+
+  const [createSubscriber, { loading }] = useCreateSubscriberMutation();  
 
   const handleSubscribe = async (event: FormEvent) => {
-    event.preventDefault();
+    event.preventDefault();    
 
-    await createSubscriber({
-      variables: {
-        name,
-        email,
-      },
-    });
+    if(!data?.subscriber?.id) {
+      await createSubscriber({
+        variables: {
+          name,
+          email,
+        },
+      });
+    }   
 
     navigate("/event");
   };
