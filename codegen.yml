@@ -1,6 +1,6 @@
-schema: https://api-sa-east-1.graphcms.com/v2/cl4n4k5w68h3x01yra00r5rzf/master
+schema: https://api-sa-east-1.graphcms.com/v2/cl4ogm8d3052z01xs3y4baxfr/master
 
-documents: './src/graphql/**/*.graphql'
+documents: './src//graphql/**/*.graphql'
 
 generates:
   ./src/graphql/generated.ts:
@@ -12,4 +12,4 @@ generates:
       reactApolloVersion: 3
       withHooks: true
       withHOC: false
-      withComponents: false
+      withComponent: false

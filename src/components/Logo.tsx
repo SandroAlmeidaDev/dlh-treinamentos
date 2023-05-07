@@ -1,3 +1,5 @@
+import React from "react";
+
 export function Logo() {
   return (
     <svg
@@ -19,4 +21,3 @@ export function Logo() {
     </svg>
   );
 }
-

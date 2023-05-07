@@ -1,8 +1,8 @@
 import { Route, Routes } from "react-router-dom";
-import { Subscribe } from "./pages/Subscribe";
 import { Event } from "./pages/Event";
+import { Subscribe } from "./pages/Subscribe";
 
-export function Router() {
+export const Router = () => {
   return (
     <Routes>
       <Route path="/" element={<Subscribe />} />
@@ -10,4 +10,4 @@ export function Router() {
       <Route path="/event/lesson/:slug" element={<Event />} />
     </Routes>
   );
-}
+};
